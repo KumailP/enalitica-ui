@@ -1,0 +1,56 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+
+  &-left {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 150px;
+
+    h1 {
+      font-family: "Lobster Two", cursive;
+      color: #4e4b93;
+      font-size: 100px;
+      margin: 0;
+    }
+
+    span {
+    //   font-family: "Lobster Two", cursive;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 18px;
+      color: #777;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      margin: 20px auto;
+      width: 200px;
+      padding: 15px;
+      color: #fff;
+      background-color: #4e4b93;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.2s all;
+
+      &:hover {
+        background-color: #383572;
+        transition: 0.2s all;
+      }
+    }
+  }
+  &-right {
+    flex: 1;
+    background-image: url("../../assets/headerdraw.svg");
+    height: 60vh;
+    width: 60vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
