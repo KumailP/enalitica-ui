@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Sidebar from "../../components/Sidebar";
 import GraphView from "../../components/GraphView";
 import "./style.scss";
@@ -11,28 +12,44 @@ export default () => {
 
   const [fullData, setFullData] = useState([
     {
-      title: "Tax rates on import vehicles over 1600cc",
-      subtitle: "tax rates etc."
+      title:
+        "Merchandise exports to low- and middle-income economies in South Asia (% of total merchandise exports)",
+      subtitle: "Merchandise exports"
     },
 
     {
-      title: "Rate of change in bank reserves",
-      subtitle: "bank reserves etc."
+      title: "Urban population (% of total population)",
+      subtitle: "Urban population"
     },
 
     {
-      title: "Total exports with respect to GDP",
-      subtitle: "Exports"
+      title: "Rural population (% of total population)",
+      subtitle: "Rural Population"
     }
   ]);
 
+  // useEffect(() => {
+  //   axios
+  //     .get("http://192.168.0.106:4000/api")
+  //     .then(function(response) {
+  //       // handle success
+  //       console.log(response);
+  //       if (response) {
+  //         setFullData(JSON.parse(response[0]));
+  //       }
+  //     })
+  //     .catch(function(error) {
+  //       console.log(error);
+  //     });
+  // }, []);
+
   const updateActive = selected => {
     const active = fullData.filter(v => v.title === selected);
-    console.log("ACTIVE: ", active[0].title);
-    console.log("ACTIVEDATA: ", activeData.title);
 
-    if (active[0].title === activeData.title) setActiveData({});
-    else setActiveData(active[0]);
+    if (active[0]) {
+      if (active[0].title === activeData.title) setActiveData({});
+      else setActiveData(active[0]);
+    }
   };
 
   return (
@@ -42,7 +59,7 @@ export default () => {
         updateActive={updateActive}
         dataNames={fullData.map(v => v.title)}
       />
-      <GraphView {...activeData} />
+      <GraphView {...activeData} i={fullData.indexOf(activeData)} />
     </div>
   );
 };
