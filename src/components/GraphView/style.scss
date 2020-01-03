@@ -1,0 +1,46 @@
+.graphview {
+  background-color: #fafafa;
+  min-height: 100vh;
+  width: 100vw;
+
+  &-title {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "Calibri";
+
+    h1 {
+      color: #333;
+    }
+
+    h3 {
+      color: #999999;
+    }
+  }
+
+  &-buttons {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    // width: 50%;
+
+    button {
+      font-family: "Calibri";
+      cursor: pointer;
+      margin: 10px;
+      color: #fff;
+      padding: 15px;
+      font-weight: bold;
+      border: none;
+      background-color: #232144;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: #18163b;
+      }
+    }
+  }
+}
